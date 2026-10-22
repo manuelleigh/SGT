@@ -1,8 +1,6 @@
 # Gestión del Servicio de TI (GST) - UTP
 
-Repositorio académico para la publicación y documentación de casos prácticos y proyectos de la asignatura **Gestión del Servicio de TI** (Universidad Tecnológica del Perú - Ciclo Agosto 2025).
-
-El proyecto está diseñado para desplegarse de manera directa en **GitHub Pages** mediante una arquitectura estática limpia, modular y responsiva.
+Repositorio para la publicación de los casos prácticos de la asignatura **Gestión del Servicio de TI** (Universidad Tecnológica del Perú).
 
 ---
 
@@ -10,57 +8,40 @@ El proyecto está diseñado para desplegarse de manera directa en **GitHub Pages
 
 ```text
 SGT/
-├── README.md                  # Documentación general del repositorio
-├── index.html                 # Portal principal del curso y directorio de entregas
+├── README.md                  # Documentación del proyecto
+├── index.html                 # Portal principal
 ├── assets/
 │   ├── css/
-│   │   └── main.css           # Hoja de estilos compartida (diseño institucional UTP/ITIL)
+│   │   └── main.css           # Estilos generales
 │   └── js/
-│       └── main.js            # Lógica e interacciones del cliente (filtros, portapapeles)
+│       └── main.js            # Interacciones compartidas
 └── semana11/
-    ├── index.html             # Hub y resumen temático de la Semana 11 (Sesión 2)
+    ├── index.html             # Hub de la Semana 11
     ├── caso01/
-    │   └── index.html         # Caso 01: Sistema Web con Base de Datos generador de valor
+    │   ├── index.html         # Sistema Web con Base de Datos en Cliente
+    │   └── app.js             # Motor de Base de Datos y lógica del sistema
     ├── caso02/
-    │   └── index.html         # Caso 02: Cuadro Comparativo de los 5 Principios Guía del SVS
+    │   └── index.html         # Cuadro Comparativo de los 5 Principios SVS
     └── caso03/
-        └── index.html         # Caso 03: Mapa Conceptual integral e interactivo de la sesión
+        └── index.html         # Mapa Conceptual de la Sesión
 ```
 
 ---
 
-## Resumen de Casos Prácticos - Semana 11 (Sesión 2)
+## Casos Desarrollados - Semana 11
 
-### Caso 01: Sistema Web con Base de Datos Generador de Valor
-- **Solución Propuesta:** Sistema Web de Telemedicina y Citas Clínicas (*MediVal SVS*).
-- **Descomposición de Valor:** Análisis de Utilidad (*Fit for Purpose*) y Garantía (*Fit for Use*) conforme al marco Axelos (2011) y Rappaport (1986).
-- **Arquitectura:** Modelo de tres capas (Vista con SPA, Procesamiento con API RESTful y Capa de Acceso a Datos con PostgreSQL 16 y Redis).
-- **Script DDL:** Esquema relacional normalizado con integridad referencial, índices B-Tree y restricciones de negocio.
-
-### Caso 02: Cuadro Comparativo de los Cinco (5) Principios Guía del SVS
-- **Matriz Comparativa:** Evaluación detallada de los 5 principios centrales presentados en clase:
-  1. *Enfocarse en el valor (Focus on value)*
-  2. *Empezar donde se está (Start where you are)*
-  3. *Progresar iterativamente con retroalimentación (Progress iteratively with feedback)*
-  4. *Colaborar y promover la visibilidad (Collaborate and promote visibility)*
-  5. *Pensar y trabajar de forma holística (Think and work holistically)*
-- **Dimensiones de Análisis:** Definición, objetivo estratégico, aplicación en software y bases de datos, riesgos de omisión, KPIs y ejemplos reales en la industria de TI.
-
-### Caso 03: Mapa Conceptual de la Sesión
-- **Taxonomía Visual:** Mapa conceptual estructurado con filtrado interactivo.
-- **Ejes Cubiertos:** Sistema de Valor del Servicio (SVS), concepto de valor, gobernanza, cadena de valor, arquetipos sistémicos (Scrum y tipos de bases de datos), y las 4 dimensiones de la gestión del servicio con el ciclo de mejora continua (PDCA).
+- **Caso 01: Sistema Web con Base de Datos en Cliente (MediVal)**
+  Aplicación web funcional que gestiona citas médicas y atenciones clínicas con persistencia en LocalStorage, validación de conflictos de horario y cálculo de indicadores de servicio en tiempo real.
+- **Caso 02: Cuadro Comparativo de los 5 Principios Guía del SVS**
+  Matriz de análisis con definición, objetivo, aplicación práctica en software, riesgos de omisión y KPIs.
+- **Caso 03: Mapa Conceptual de la Sesión**
+  Taxonomía y relaciones entre el Sistema de Valor del Servicio, utilidad y garantía, principios rectores y arquetipos sistémicos.
 
 ---
 
 ## Activación de GitHub Pages
 
-Para habilitar la visualización web de los casos prácticos:
-
-1. Ingresar al repositorio en GitHub: `https://github.com/manuelleigh/SGT`
-2. Ir a **Settings** &rarr; pestaña **Pages** (en el menú lateral izquierdo).
-3. En la sección **Build and deployment**:
-   - **Source:** Seleccionar `Deploy from a branch`.
-   - **Branch:** Elegir la rama `main` y la carpeta `/ (root)`.
-4. Hacer clic en **Save**.
-5. Tras unos minutos, el sitio estará publicado en:
-   `https://manuelleigh.github.io/SGT/`
+1. Ingresar a `https://github.com/manuelleigh/SGT`
+2. Ir a **Settings** > **Pages**.
+3. En **Source**, seleccionar `Deploy from a branch` (rama `main`, carpeta `/root`).
+4. Guardar. El sitio quedará disponible en: `https://manuelleigh.github.io/SGT/`

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caso 01: Sistema Web con Base de Datos Orientado a Valor de Servicio | Gestión del Servicio de TI</title>
+  <title>Caso 01: Sistema Web con Base de Datos en Cliente | Gestión del Servicio de TI</title>
   <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
@@ -12,10 +12,10 @@
   <header class="header-top">
     <div class="header-container">
       <a href="../../index.html" class="brand-section">
-        <span class="brand-badge">UTP</span>
+        <span class="brand-logo-text">UTP</span>
         <div>
           <div class="brand-title">Gestión del Servicio de TI</div>
-          <div class="brand-subtitle">Ciclo Académico 2025 | Sistema de Valor del Servicio (SVS)</div>
+          <div class="brand-subtitle">Facultad de Ingeniería de Sistemas e Informática</div>
         </div>
       </a>
       <nav class="header-nav">
@@ -43,439 +43,325 @@
     </div>
   </header>
 
-  <!-- Barra de Ruta y Metadatos -->
+  <!-- Barra de Ruta -->
   <div class="breadcrumb-bar">
     <div class="breadcrumb-container">
       <div class="breadcrumbs">
-        <a href="../../index.html">Portal General</a>
+        <a href="../../index.html">Inicio</a>
         <span class="breadcrumb-separator">/</span>
         <a href="../index.html">Semana 11</a>
         <span class="breadcrumb-separator">/</span>
         <span>Caso 01</span>
       </div>
-      <div class="session-tag">Semana 11 - Sesión 2 | Actividad Práctica</div>
+      <div class="session-indicator">Semana 11 - Sesión 2</div>
     </div>
   </div>
 
   <!-- Contenido Central -->
   <main class="main-wrapper">
     <div class="page-header">
-      <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
-        <span class="badge badge-primary">Arquitectura Web y BD</span>
-        <span class="badge badge-success">Generación de Valor ITIL 4</span>
-      </div>
       <h1 class="page-title">
         <svg class="icon icon-lg" style="color: var(--secondary);" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-        Caso Práctico: Sistema Web con Base de Datos Generador de Valor de Servicio
+        Caso 01: Sistema Web con Base de Datos Generador de Valor de Servicio
       </h1>
       <p class="page-description">
-        Diseño formal de una solución tecnológica orientada a la web con base de datos relacional (PostgreSQL), concebida bajo los principios de utilidad, garantía y flujo de valor del Sistema de Valor del Servicio (SVS) de ITIL 4.
+        Aplicación web funcional con base de datos relacional persistente en cliente (LocalStorage) para la gestión integral de citas clínicas, atención médica y medición de valor de servicio.
       </p>
     </div>
 
-    <!-- 1. Ficha Técnica y Contexto Organizacional -->
-    <section class="card">
-      <div class="card-header">
-        <h2 class="card-title">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-          1. Contexto Organizacional y Planteamiento del Problema
+    <!-- Métricas en Vivo de Generación de Valor -->
+    <div class="grid-4" style="margin-bottom: 1.5rem;">
+      <div class="stat-box">
+        <div class="stat-value" id="metric-total">0</div>
+        <div class="stat-label">Citas Registradas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="metric-atendidas" style="color: var(--success);">0</div>
+        <div class="stat-label">Citas Atendidas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="metric-csat" style="color: var(--secondary);">0</div>
+        <div class="stat-label">Satisfacción Promedio</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="metric-espera" style="color: var(--accent);">0</div>
+        <div class="stat-label">Tiempo de Espera en Sala</div>
+      </div>
+    </div>
+
+    <!-- Contenedor del Sistema Web -->
+    <div class="card">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tab-agendar">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          1. Agendar Cita
+        </button>
+        <button class="tab-btn" data-tab="tab-atencion">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          2. Panel Médico y Atenciones
+        </button>
+        <button class="tab-btn" data-tab="tab-evaluacion">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          3. Evaluación de Valor
+        </button>
+        <button class="tab-btn" data-tab="tab-database">
+          <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          4. Base de Datos (JSON)
+        </button>
+      </div>
+
+      <!-- Pestaña 1: Agendar Cita -->
+      <div id="tab-agendar" class="tab-content active">
+        <h2 class="card-title" style="margin-bottom: 1rem;">
+          Registro de Cita y Control de Disponibilidad en BD
         </h2>
-        <span class="badge badge-accent">Sector Salud y Servicios Clínicos</span>
+        <form id="form-nueva-cita">
+          <div class="grid-2">
+            <div>
+              <div class="form-group">
+                <label class="form-label" for="select-paciente">Paciente:</label>
+                <select id="select-paciente" class="form-control" required></select>
+              </div>
+
+              <div class="form-group">
+                <label style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+                  <input type="checkbox" id="chk-nuevo-paciente">
+                  Registrar un nuevo paciente
+                </label>
+              </div>
+
+              <div id="box-nuevo-paciente" style="display: none; background: var(--background); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label class="form-label">DNI del Paciente:</label>
+                  <input type="text" id="nuevo-dni" class="form-control" placeholder="8 dígitos">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nombres y Apellidos:</label>
+                  <input type="text" id="nuevo-nombres" class="form-control" placeholder="Nombre completo">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label">Teléfono Móvil:</label>
+                  <input type="text" id="nuevo-telefono" class="form-control" placeholder="9 dígitos">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="select-medico">Médico y Especialidad:</label>
+                <select id="select-medico" class="form-control" required></select>
+              </div>
+            </div>
+
+            <div>
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="txt-fecha">Fecha:</label>
+                  <input type="date" id="txt-fecha" class="form-control" value="2026-10-22" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="txt-hora">Hora:</label>
+                  <select id="txt-hora" class="form-control" required>
+                    <option value="08:30">08:30 AM</option>
+                    <option value="09:00">09:00 AM</option>
+                    <option value="09:30">09:30 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="10:30">10:30 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="11:30">11:30 AM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="14:30">02:30 PM</option>
+                    <option value="15:00">03:00 PM</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="select-modalidad">Modalidad de Atención:</label>
+                <select id="select-modalidad" class="form-control">
+                  <option value="Presencial">Presencial (En Consultorio)</option>
+                  <option value="Teleconsulta">Teleconsulta Web</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="txt-motivo">Motivo o Síntomas:</label>
+                <textarea id="txt-motivo" class="form-control" rows="3" placeholder="Descripción breve de la molestia o consulta..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Confirmar y Guardar en Base de Datos
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
 
-      <div class="grid-2">
-        <div>
-          <h3 class="sub-heading" style="margin-top:0;">Organización Objetivo</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1rem;">
-            <strong>Red Hospitalaria San Marcos (RHSM)</strong>, entidad prestadora de servicios de salud con 3 sedes metropolitanas, 18 especialidades médicas y un promedio de 850 consultas diarias.
-          </p>
-          <div class="callout callout-accent">
-            <strong>Situación Operativa Inicial (As-Is):</strong>
-            <ul style="margin-left: 1.25rem; margin-top: 0.5rem; color: var(--text-main); font-size: 0.9rem;">
-              <li>Colas presenciales desde las 5:00 a.m. para conseguir turnos de atención ambulatoria.</li>
-              <li>Tasa de inasistencia (no-show) del 32% debido a falta de confirmación y recordatorios.</li>
-              <li>Historias clínicas físicas dispersas en archivadores, con demoras de hasta 40 minutos en su entrega a consultorio.</li>
-              <li>Pérdida de ingresos por consultorios desocupados y sobrecosto de personal administrativo en ventanillas.</li>
-            </ul>
-          </div>
+      <!-- Pestaña 2: Panel Médico -->
+      <div id="tab-atencion" class="tab-content">
+        <h2 class="card-title" style="margin-bottom: 1rem;">
+          Registro y Seguimiento de Citas en Base de Datos
+        </h2>
+        <div class="table-responsive">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Horario</th>
+                <th>Motivo</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="citas-table-body"></tbody>
+          </table>
         </div>
+      </div>
 
-        <div>
-          <h3 class="sub-heading" style="margin-top:0;">Solución Propuesta: Sistema MediVal SVS</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1rem;">
-            Plataforma web integral de autoservicio de citas médicas y gestión clínica en tiempo real, respaldada por un motor de base de datos relacional de alta disponibilidad, conectando pacientes, médicos especialistas y administración hospitalaria.
-          </p>
-          <div class="callout callout-success">
-            <strong>Objetivo de Servicio (To-Be):</strong>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-              Habilitar el agendamiento y pago de citas en menos de 2 minutos desde cualquier dispositivo web, eliminar el papel en el consultorio mediante historia clínica electrónica y optimizar la ocupación de consultorios al 92%.
-            </p>
+      <!-- Pestaña 3: Evaluación de Valor -->
+      <div id="tab-evaluacion" class="tab-content">
+        <h2 class="card-title" style="margin-bottom: 1rem;">
+          Medición de Valor del Servicio (Encuesta Post-Atención)
+        </h2>
+        <div class="grid-2">
+          <div>
+            <form id="form-evaluacion">
+              <div class="form-group">
+                <label class="form-label" for="select-cita-eval">Seleccionar Cita Atendida:</label>
+                <select id="select-cita-eval" class="form-control" required></select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="select-calificacion">Calificación General del Servicio (1 al 5):</label>
+                <select id="select-calificacion" class="form-control" required>
+                  <option value="5">5 - Excelente servicio y puntualidad</option>
+                  <option value="4">4 - Bueno, atención adecuada</option>
+                  <option value="3">3 - Regular</option>
+                  <option value="2">2 - Deficiente</option>
+                  <option value="1">1 - Muy insatisfecho</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="txt-espera-min">Tiempo Real de Espera en Sala (Minutos):</label>
+                <input type="number" id="txt-espera-min" class="form-control" value="10" min="0" max="180" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="select-recomienda">¿Recomendaría el servicio a otros usuarios?:</label>
+                <select id="select-recomienda" class="form-control">
+                  <option value="true">Sí, definitivamente</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="txt-comentario-eval">Comentarios u observaciones:</label>
+                <textarea id="txt-comentario-eval" class="form-control" rows="2" placeholder="Opinión del paciente..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-accent" style="width: 100%; justify-content: center;">
+                Registrar Evaluación de Valor
+              </button>
+            </form>
+          </div>
+
+          <div>
+            <h3 class="sub-heading" style="margin-top: 0;">Historial de Evaluaciones Emitidas</h3>
+            <div id="evaluaciones-list" style="max-height: 420px; overflow-y: auto;"></div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- 2. Definición del Valor del Servicio -->
+      <!-- Pestaña 4: Base de Datos JSON -->
+      <div id="tab-database" class="tab-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h2 class="card-title" style="margin-bottom: 0;">
+            Estado de las Tablas en la Base de Datos
+          </h2>
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-outline btn-sm" onclick="exportDatabaseJson()">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Exportar JSON
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="resetDatabase()">
+              <svg class="icon" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+              Cargar Datos de Prueba
+            </button>
+          </div>
+        </div>
+        <pre class="code-block" id="db-json-view" style="max-height: 400px;"></pre>
+      </div>
+    </div>
+
+    <!-- Justificación Técnica del Valor de Servicio Generado -->
     <section class="card">
       <div class="card-header">
         <h2 class="card-title">
           <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line></svg>
-          2. Generación de Valor: Utilidad, Garantía y Retorno Estratégico
+          Sustentación de la Generación de Valor
         </h2>
-        <span class="badge badge-primary">Marco Axelos & Rappaport</span>
       </div>
 
-      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-        Conforme a la definición de ITIL (Axelos, 2011), el valor es la percepción conjunta de <strong>Utilidad</strong> (adecuación para el propósito) y <strong>Garantía</strong> (adecuación para el uso), la cual maximiza la creación de valor medible para las partes interesadas (Rappaport, 1986).
-      </p>
+      <div class="grid-3">
+        <div>
+          <h3 class="sub-heading" style="margin-top: 0;">Utilidad (Fit for Purpose)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+            El sistema resuelve el requerimiento funcional de autogestión de citas médicas las 24 horas, registro de atenciones con diagnóstico/receta electrónica y recolección de retroalimentación inmediata del usuario.
+          </p>
+        </div>
 
-      <div class="grid-2">
-        <!-- Utilidad -->
-        <div style="background-color: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-            <div style="background-color: #e0e7ff; color: #3730a3; padding: 0.4rem; border-radius: var(--radius-sm);">
-              <svg class="icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-            </div>
-            <div>
-              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--primary);">Utilidad (Fit for Purpose)</h3>
-              <span style="font-size: 0.75rem; color: var(--text-subtle);">¿Qué capacidades funcionales entrega el sistema?</span>
-            </div>
+        <div>
+          <h3 class="sub-heading" style="margin-top: 0;">Garantía (Fit for Use)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+            Asegura la integridad de los datos impidiendo el solapamiento de horarios para un mismo médico, persistiendo la información de forma local y manteniendo disponibilidad continua sin depender de servidores externos.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="sub-heading" style="margin-top: 0;">Impacto Operativo</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+            Reduce las colas físicas en ventanilla, optimiza la ocupación de consultorios mediante el control de citas en tiempo real y cuantifica el nivel de satisfacción a través de indicadores de servicio directos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal para Atender Cita -->
+    <div id="modal-atencion" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; z-index: 1000; padding: 1rem;">
+      <div style="background: #ffffff; border-radius: var(--radius); width: 100%; max-width: 560px; padding: 1.5rem; box-shadow: var(--shadow);">
+        <h3 style="margin-bottom: 0.5rem; color: var(--primary);">Registrar Atención Médica</h3>
+        <p style="font-size: 0.825rem; color: var(--text-subtle); margin-bottom: 1rem;">
+          Paciente: <strong id="atencion-info-paciente"></strong> | Médico: <strong id="atencion-info-medico"></strong><br>
+          Motivo: <span id="atencion-info-motivo"></span>
+        </p>
+
+        <form id="form-atencion-medica">
+          <input type="hidden" id="atencion-id-cita">
+
+          <div class="form-group">
+            <label class="form-label" for="atencion-diagnostico">Diagnóstico Clínico (CIE-10 o Detalle):</label>
+            <input type="text" id="atencion-diagnostico" class="form-control" placeholder="Ej. J00 - Rinofaringitis aguda" required>
           </div>
-          <ul style="margin-left: 1.25rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
-            <li><strong>Portal de Autogestión del Paciente:</strong> Búsqueda de médicos por especialidad, sede, tarifa y calificación. Reserva y cancelación autónoma 24/7.</li>
-            <li><strong>Gestor de Agenda Médica Dinámica:</strong> Bloqueo automático de turnos reservados, reprogramación instantánea por incidencias y sobrecupos autorizados.</li>
-            <li><strong>Expediente Clínico Electrónico (ECE):</strong> Registro de diagnóstico codificado bajo estándar internacional CIE-10 y prescripción médica digital con firma.</li>
-            <li><strong>Notificaciones Multicanal:</strong> Envío de confirmaciones y recordatorios automáticos vía WhatsApp y correo 24 horas antes de la cita.</li>
-            <li><strong>Módulo de Teleconsulta Integrada:</strong> Enlace web cifrado para atención remota sin requerir instalaciones de terceros.</li>
-          </ul>
-        </div>
 
-        <!-- Garantía -->
-        <div style="background-color: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-            <div style="background-color: #d1fae5; color: #065f46; padding: 0.4rem; border-radius: var(--radius-sm);">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            </div>
-            <div>
-              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--primary);">Garantía (Fit for Use)</h3>
-              <span style="font-size: 0.75rem; color: var(--text-subtle);">¿Cómo asegura el nivel de calidad y confianza?</span>
-            </div>
+          <div class="form-group">
+            <label class="form-label" for="atencion-tratamiento">Tratamiento e Indicaciones:</label>
+            <textarea id="atencion-tratamiento" class="form-control" rows="2" placeholder="Indicaciones médicas..." required></textarea>
           </div>
-          <ul style="margin-left: 1.25rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">
-            <li><strong>Disponibilidad (SLA):</strong> Compromiso del 99.9% de operatividad anual, con balanceo de carga y arquitectura de failover automático.</li>
-            <li><strong>Capacidad y Rendimiento:</strong> Tiempos de respuesta inferiores a 350 milisegundos bajo una carga de hasta 1,500 solicitudes concurrentes simultáneas.</li>
-            <li><strong>Seguridad y Confidencialidad:</strong> Cifrado de datos en tránsito (TLS 1.3) y en reposo (AES-256 en PostgreSQL). Control de acceso basado en roles (RBAC).</li>
-            <li><strong>Continuidad del Servicio:</strong> Recuperación ante desastres con Objetivo de Punto de Recuperación (RPO) &le; 10 min y Tiempo de Recuperación (RTO) &le; 45 min.</li>
-            <li><strong>Integridad de Transacciones:</strong> Cumplimiento estricto de propiedades ACID para evitar duplicidad de turnos médicos en concurrencia.</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- Métricas de Impacto Financiero y Operativo -->
-      <h3 class="sub-heading">Impacto en el Negocio y Creación de Valor Medible</h3>
-      <div class="grid-4">
-        <div style="background-color: var(--background); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
-          <div style="font-size: 1.6rem; font-weight: 800; color: var(--accent);">-78%</div>
-          <div style="font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-top: 0.25rem;">Tiempo de Espera en Colas</div>
-          <div style="font-size: 0.75rem; color: var(--text-subtle);">De 180 min a 3 min promedio vía web</div>
-        </div>
-        <div style="background-color: var(--background); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
-          <div style="font-size: 1.6rem; font-weight: 800; color: var(--success);">-75%</div>
-          <div style="font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-top: 0.25rem;">Inasistencias a Consultas</div>
-          <div style="font-size: 0.75rem; color: var(--text-subtle);">Reducido del 32% al 8% mediante recordatorios</div>
-        </div>
-        <div style="background-color: var(--background); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
-          <div style="font-size: 1.6rem; font-weight: 800; color: var(--secondary);">+41%</div>
-          <div style="font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-top: 0.25rem;">Ocupación de Consultorios</div>
-          <div style="font-size: 0.75rem; color: var(--text-subtle);">Reasignación inmediata de cancelaciones</div>
-        </div>
-        <div style="background-color: var(--background); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border); text-align: center;">
-          <div style="font-size: 1.6rem; font-weight: 800; color: var(--primary);">94.8%</div>
-          <div style="font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-top: 0.25rem;">Índice de Satisfacción (CSAT)</div>
-          <div style="font-size: 0.75rem; color: var(--text-subtle);">Medido mediante microencuestas post-servicio</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Arquetipo Sistémico y Arquitectura Técnica en 3 Capas -->
-    <section class="card">
-      <div class="card-header">
-        <h2 class="card-title">
-          <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-          3. Arquetipo Sistémico y Arquitectura de 3 Capas
-        </h2>
-        <span class="badge badge-primary">Diapositiva 8 de la Sesión</span>
-      </div>
-
-      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-        La solución adopta el arquetipo clásico y robusto de 3 capas (Vista &rarr; Procesamiento &rarr; Acceso a Datos / DBMS), complementado con almacenamiento en caché e integración de servicios:
-      </p>
-
-      <div class="table-responsive">
-        <table class="table-custom">
-          <thead>
-            <tr>
-              <th style="width: 22%;">Capa Arquitectónica</th>
-              <th style="width: 28%;">Tecnología Seleccionada</th>
-              <th style="width: 32%;">Responsabilidad en el Servicio</th>
-              <th style="width: 18%;">Valor que Aporta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <strong style="color: var(--primary);">1. Capa de Vista (Frontend)</strong>
-                <div style="font-size: 0.8rem; color: var(--text-subtle);">Interfaz de Usuario</div>
-              </td>
-              <td>
-                SPA responsiva con HTML5 semántico, CSS3 modular (Tailwind CSS) y React / Vanilla JS estructurado. PWA para instalación móvil.
-              </td>
-              <td>
-                Presenta los formularios interactivos de búsqueda de doctores, calendario dinámico con selección horaria en grilla, pasarela de pago y visualizador de prescripciones.
-              </td>
-              <td>
-                <span class="badge badge-primary">Experiencia Ágil</span>
-                <div style="font-size: 0.78rem; margin-top: 0.25rem;">Accesible, responsivo y sin recargas completas.</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong style="color: var(--primary);">2. Capa de Procesamiento</strong>
-                <div style="font-size: 0.8rem; color: var(--text-subtle);">Lógica del Negocio</div>
-              </td>
-              <td>
-                API RESTful sobre Node.js con Express (o Java Spring Boot), arquitectura en capas (Controladores, Servicios, Repositorios) con validaciones y JWT.
-              </td>
-              <td>
-                Valida cupos médicos en tiempo real, bloquea colisiones de horario mediante semáforos, despacha Webhooks de pago y orquesta alertas vía Twilio/SendGrid.
-              </td>
-              <td>
-                <span class="badge badge-success">Reglas Seguras</span>
-                <div style="font-size: 0.78rem; margin-top: 0.25rem;">Aislamiento de la lógica y alta concurrencia.</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong style="color: var(--primary);">3. Capa de Acceso a Datos</strong>
-                <div style="font-size: 0.8rem; color: var(--text-subtle);">DBMS & Almacenamiento</div>
-              </td>
-              <td>
-                <strong>PostgreSQL 16</strong> (Motor Relacional ACID) + <strong>Redis 7</strong> (In-Memory Cache) desplegados en clúster con réplica de lectura.
-              </td>
-              <td>
-                Persiste con integridad referencial las entidades de pacientes, profesionales, citas e historiales. Redis gestiona colas de espera y sesiones activas.
-              </td>
-              <td>
-                <span class="badge badge-accent">Integridad Total</span>
-                <div style="font-size: 0.78rem; margin-top: 0.25rem;">Cero pérdida de datos y transacciones seguras.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Diagrama de Flujo del Arquetipo Sistémico -->
-      <h3 class="sub-heading">Diagrama de Interacción entre Componentes</h3>
-      <div class="diagram-canvas">
-        <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-          <div style="display: flex; justify-content: space-around; width: 100%; flex-wrap: wrap; gap: 1rem;">
-            
-            <div style="flex: 1; min-width: 250px; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: var(--radius); padding: 1.25rem; text-align: center;">
-              <div style="font-size: 0.8rem; font-weight: 700; color: var(--secondary); text-transform: uppercase;">Capa 1: Vista</div>
-              <div style="font-weight: 700; font-size: 1.05rem; color: var(--primary); margin: 0.5rem 0;">Portal Web del Paciente y Médico</div>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">HTTPS / JSON / WebSockets</div>
-            </div>
-
-            <div style="display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--secondary);">
-              &harr;
-            </div>
-
-            <div style="flex: 1; min-width: 250px; background: #eff6ff; border: 2px solid #2563eb; border-radius: var(--radius); padding: 1.25rem; text-align: center;">
-              <div style="font-size: 0.8rem; font-weight: 700; color: var(--secondary); text-transform: uppercase;">Capa 2: Procesamiento</div>
-              <div style="font-weight: 700; font-size: 1.05rem; color: var(--primary); margin: 0.5rem 0;">API Gateway + Reglas de Negocio</div>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">Autenticación JWT | Control de Cupos | Alertas</div>
-            </div>
-
-            <div style="display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--secondary);">
-              &harr;
-            </div>
-
-            <div style="flex: 1; min-width: 250px; background: #f0fdf4; border: 2px solid #16a34a; border-radius: var(--radius); padding: 1.25rem; text-align: center;">
-              <div style="font-size: 0.8rem; font-weight: 700; color: #16a34a; text-transform: uppercase;">Capa 3: Acceso a Datos</div>
-              <div style="font-weight: 700; font-size: 1.05rem; color: var(--primary); margin: 0.5rem 0;">PostgreSQL 16 + Redis Cache</div>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">Transacciones ACID | Índices B-Tree | Copias de Respaldo</div>
-            </div>
-
+          <div class="form-group">
+            <label class="form-label" for="atencion-receta">Receta Médica Digital:</label>
+            <input type="text" id="atencion-receta" class="form-control" placeholder="Medicamentos y dosis">
           </div>
-        </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModalAtencion()">Cancelar</button>
+            <button type="submit" class="btn btn-success">Guardar Atención en BD</button>
+          </div>
+        </form>
       </div>
-    </section>
-
-    <!-- 4. Diseño y Script de Base de Datos Relacional -->
-    <section class="card">
-      <div class="card-header">
-        <h2 class="card-title">
-          <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-          4. Modelo Relacional y Script DDL de la Base de Datos
-        </h2>
-        <span class="badge badge-success">PostgreSQL DDL</span>
-      </div>
-
-      <p style="color: var(--text-muted); margin-bottom: 1rem;">
-        A continuación se detalla el esquema relacional normalizado en 3FN que asegura la consistencia de los datos del servicio, garantiza el bloqueo de turnos coincidentes y registra la trazabilidad del valor recibido por el paciente:
-      </p>
-
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Script SQL: Definición de Esquema de Datos</span>
-        <button class="btn btn-outline btn-copy-code" data-target="sql-schema-code" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
-          <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          Copiar SQL
-        </button>
-      </div>
-
-      <pre class="code-block" id="sql-schema-code"><code>-- ====================================================================
--- ESQUEMA DE BASE DE DATOS: medival_svs_db
--- MOTOR: PostgreSQL 16
--- DESCRIPCIÓN: Gestión de Citas Médicas y Medición de Valor del Servicio
--- ====================================================================
-
--- 1. Tabla de Especialidades Médicas
-CREATE TABLE especialidades (
-    id_especialidad SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL UNIQUE,
-    descripcion TEXT,
-    duracion_promedio_min INT NOT NULL DEFAULT 20,
-    costo_base NUMERIC(10, 2) NOT NULL,
-    estado BOOLEAN DEFAULT TRUE
-);
-
--- 2. Tabla de Médicos Especialistas
-CREATE TABLE medicos (
-    id_medico SERIAL PRIMARY KEY,
-    id_especialidad INT NOT NULL REFERENCES especialidades(id_especialidad),
-    nombres VARCHAR(100) NOT NULL,
-    apellidos VARCHAR(100) NOT NULL,
-    numero_colegiatura VARCHAR(20) NOT NULL UNIQUE,
-    email VARCHAR(120) NOT NULL UNIQUE,
-    telefono VARCHAR(20),
-    consultorio_numero VARCHAR(10) NOT NULL,
-    activo BOOLEAN DEFAULT TRUE
-);
-
--- 3. Tabla de Pacientes Registrados
-CREATE TABLE pacientes (
-    id_paciente SERIAL PRIMARY KEY,
-    tipo_documento VARCHAR(10) NOT NULL DEFAULT 'DNI',
-    numero_documento VARCHAR(20) NOT NULL UNIQUE,
-    nombres VARCHAR(100) NOT NULL,
-    apellidos VARCHAR(100) NOT NULL,
-    email VARCHAR(120) NOT NULL,
-    telefono_movil VARCHAR(20) NOT NULL,
-    fecha_nacimiento DATE NOT NULL,
-    direccion VARCHAR(255),
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 4. Tabla de Citas Médicas (Transaccional Clave)
-CREATE TABLE citas_medicas (
-    id_cita BIGSERIAL PRIMARY KEY,
-    id_paciente INT NOT NULL REFERENCES pacientes(id_paciente),
-    id_medico INT NOT NULL REFERENCES medicos(id_medico),
-    fecha_cita DATE NOT NULL,
-    hora_inicio TIME NOT NULL,
-    hora_fin TIME NOT NULL,
-    estado VARCHAR(20) NOT NULL DEFAULT 'RESERVADA'
-        CHECK (estado IN ('RESERVADA', 'CONFIRMADA', 'EN_ATENCION', 'ATENDIDA', 'CANCELADA', 'NO_ASISTIO')),
-    modalidad VARCHAR(15) NOT NULL DEFAULT 'PRESENCIAL'
-        CHECK (modalidad IN ('PRESENCIAL', 'TELECONSULTA')),
-    motivo_consulta TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT uq_medico_horario UNIQUE (id_medico, fecha_cita, hora_inicio)
-);
-
--- 5. Tabla de Expediente Clínico Electrónico (Atención Médica)
-CREATE TABLE expedientes_clinicos (
-    id_expediente BIGSERIAL PRIMARY KEY,
-    id_cita BIGINT NOT NULL UNIQUE REFERENCES citas_medicas(id_cita),
-    diagnostico_cie10 VARCHAR(10) NOT NULL,
-    anamnesis TEXT NOT NULL,
-    tratamiento_indicado TEXT NOT NULL,
-    receta_digital_json JSONB,
-    fecha_cierre TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 6. Tabla de Medición de Valor y Encuesta Post-Servicio
-CREATE TABLE evaluaciones_servicio (
-    id_evaluacion SERIAL PRIMARY KEY,
-    id_cita BIGINT NOT NULL UNIQUE REFERENCES citas_medicas(id_cita),
-    calificacion_general INT NOT NULL CHECK (calificacion_general BETWEEN 1 AND 5),
-    tiempo_espera_percibido INT NOT NULL, -- en minutos
-    claridad_explicacion_medico INT NOT NULL CHECK (claridad_explicacion_medico BETWEEN 1 AND 5),
-    recomienda_servicio BOOLEAN NOT NULL,
-    comentarios TEXT,
-    fecha_encuesta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Índices B-Tree para optimización de consultas concurrentes
-CREATE INDEX idx_citas_fecha_medico ON citas_medicas(id_medico, fecha_cita, estado);
-CREATE INDEX idx_citas_paciente ON citas_medicas(id_paciente);
-CREATE INDEX idx_evaluaciones_calif ON evaluaciones_servicio(calificacion_general);</code></pre>
-    </section>
-
-    <!-- 5. Articulación con la Cadena de Valor del Servicio (SVS) -->
-    <section class="card">
-      <div class="card-header">
-        <h2 class="card-title">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          5. Articulación con la Cadena de Valor del Servicio de ITIL
-        </h2>
-        <span class="badge badge-accent">Ciclo de Valor Completo</span>
-      </div>
-
-      <div class="table-responsive">
-        <table class="table-custom">
-          <thead>
-            <tr>
-              <th style="width: 20%;">Actividad de la Cadena</th>
-              <th style="width: 45%;">Acción Concreta en el Proyecto MediVal SVS</th>
-              <th style="width: 35%;">Resultado de Valor Generado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>1. Demanda / Oportunidad</strong></td>
-              <td>Identificación de cuellos de botella en admisión ambulatoria y quejas reiteradas de pacientes por colas físicas de madrugada.</td>
-              <td>Definición formal del caso de negocio respaldado en ROI y métricas de satisfacción del paciente.</td>
-            </tr>
-            <tr>
-              <td><strong>2. Planear</strong></td>
-              <td>Establecimiento del cronograma de desarrollo ágil en sprints de 2 semanas, asignación de presupuesto y selección de stack tecnológico.</td>
-              <td>Plan de trabajo aprobado con roles Scrum definidos (Product Owner, Scrum Master, Equipo Técnico).</td>
-            </tr>
-            <tr>
-              <td><strong>3. Diseñar y Transicionar</strong></td>
-              <td>Elaboración del diseño centrado en el usuario (UX/UI médico accesible), modelado relacional PostgreSQL y pruebas de migración de datos.</td>
-              <td>Prototipo navegable validado por doctores y pacientes; catálogo de servicios digital listo para producción.</td>
-            </tr>
-            <tr>
-              <td><strong>4. Obtener / Construir</strong></td>
-              <td>Desarrollo modular de microservicios web, integración de pasarelas de pago y configuración de copias de seguridad continuas.</td>
-              <td>Software testeado con cobertura de pruebas unitarias superior al 85% y cero vulnerabilidades críticas.</td>
-            </tr>
-            <tr>
-              <td><strong>5. Entregar y Soportar</strong></td>
-              <td>Lanzamiento controlado en sede piloto, capacitación a personal de admisión y monitoreo activo del rendimiento con alertas tempranas.</td>
-              <td>Transición suave sin interrupciones en la atención; resolución de incidencias en primer nivel menor a 15 min.</td>
-            </tr>
-            <tr>
-              <td><strong>6. Mejorar</strong></td>
-              <td>Análisis semanal de los resultados de la tabla `evaluaciones_servicio` y retroalimentación directa de los especialistas para optimizar la interfaz.</td>
-              <td>Ciclo continuo de refinamiento que elevó el CSAT de 71% a 94.8% en el primer trimestre.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    </div>
 
     <!-- Navegación entre casos -->
     <div class="case-nav-footer">
@@ -484,12 +370,12 @@ CREATE INDEX idx_evaluaciones_calif ON evaluaciones_servicio(calificacion_genera
         <div class="case-nav-title">Índice de Semana 11</div>
       </a>
       <a href="../caso02/index.html" class="case-nav-card" style="border-color: var(--secondary);">
-        <div class="case-nav-label">Siguiente Actividad &rarr;</div>
-        <div class="case-nav-title">Caso 02: Cuadro Comparativo de los 5 Principios SVS</div>
+        <div class="case-nav-label">Siguiente Caso &rarr;</div>
+        <div class="case-nav-title">Caso 02: Cuadro Comparativo de los 5 Principios</div>
       </a>
       <a href="../caso03/index.html" class="case-nav-card">
         <div class="case-nav-label">Ver Caso 03 &rarr;</div>
-        <div class="case-nav-title">Mapa Conceptual de la Sesión</div>
+        <div class="case-nav-title">Caso 03: Mapa Conceptual de la Sesión</div>
       </a>
     </div>
   </main>
@@ -502,12 +388,11 @@ CREATE INDEX idx_evaluaciones_calif ON evaluaciones_servicio(calificacion_genera
       </div>
       <div class="footer-meta">
         <span>Semana 11 - Sesión 2</span>
-        <span>&bull;</span>
-        <span>Ciclo Agosto 2025</span>
       </div>
     </div>
   </footer>
 
   <script src="../../assets/js/main.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
