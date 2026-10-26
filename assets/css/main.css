@@ -611,3 +611,198 @@ code.inline-code {
   color: var(--primary);
   margin-bottom: 0.2rem;
 }
+
+/* Porter Value Chain Diagram Styles */
+.porter-container {
+  display: flex;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  overflow-x: auto;
+  gap: 1rem;
+}
+
+.porter-grid-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 720px;
+}
+
+.porter-support-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.porter-support-row {
+  display: flex;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.porter-support-row:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.porter-row-label {
+  width: 22%;
+  padding: 0.65rem 0.85rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.porter-row-content {
+  flex: 1;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.porter-primary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.porter-primary-col {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.porter-primary-col:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.porter-col-header {
+  padding: 0.65rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.porter-col-body {
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.porter-tag {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.porter-margin-col {
+  width: 90px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.porter-margin-col:hover {
+  filter: brightness(1.05);
+}
+
+/* Detail Inspection Modal/Box */
+.porter-detail-box {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--secondary);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.porter-detail-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Presentation Key Highlights */
+.expo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.expo-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.15s ease;
+}
+
+.expo-card:hover {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow);
+}
+
+.expo-card-header {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.expo-card-body {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}

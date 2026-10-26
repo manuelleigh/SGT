@@ -9,39 +9,45 @@ Repositorio para la publicación de los casos prácticos de la asignatura **Gest
 ```text
 SGT/
 ├── README.md                  # Documentación del proyecto
-├── index.html                 # Portal principal
+├── index.html                 # Portal principal del curso
 ├── assets/
 │   ├── css/
-│   │   └── main.css           # Estilos generales
+│   │   └── main.css           # Estilos generales y diagramas interactivos
 │   └── js/
 │       └── main.js            # Interacciones compartidas
-└── semana11/
-    ├── index.html             # Hub de la Semana 11
+├── semana11/
+│   ├── index.html             # Hub de la Semana 11
+│   ├── caso01/
+│   │   ├── index.html         # Sistema Web con Base de Datos en Cliente (MediVal)
+│   │   └── app.js             # Motor de Base de Datos y lógica del sistema
+│   ├── caso02/
+│   │   └── index.html         # Cuadro Comparativo de los 5 Principios SVS
+│   └── caso03/
+│       └── index.html         # Mapa Conceptual de la Sesión 11
+└── semana12/
+    ├── index.html             # Hub de la Semana 12
     ├── caso01/
-    │   ├── index.html         # Sistema Web con Base de Datos en Cliente
-    │   └── app.js             # Motor de Base de Datos y lógica del sistema
+    │   └── index.html         # Análisis de la Cadena de Valor de Apple (Diagrama e Inspección)
     ├── caso02/
-    │   └── index.html         # Cuadro Comparativo de los 5 Principios SVS
+    │   └── index.html         # Cuadro Comparativo de Beneficios y Desventajas de la CVS
     └── caso03/
-        └── index.html         # Mapa Conceptual de la Sesión
+        └── index.html         # Mapa Conceptual de la Sesión 12
 ```
 
 ---
 
-## Casos Desarrollados - Semana 11
+## Casos Desarrollados - Semana 12 (Sesión 1)
 
-- **Caso 01: Sistema Web con Base de Datos en Cliente (MediVal)**
-  Aplicación web funcional que gestiona citas médicas y atenciones clínicas con persistencia en LocalStorage, validación de conflictos de horario y cálculo de indicadores de servicio en tiempo real.
-- **Caso 02: Cuadro Comparativo de los 5 Principios Guía del SVS**
-  Matriz de análisis con definición, objetivo, aplicación práctica en software, riesgos de omisión y KPIs.
+- **Caso 01: Análisis de la Cadena de Valor de Apple**
+  Descomposición interactiva de las actividades primarias y de soporte según el modelo de Porter (1985). Incluye inspección dinámica de bloques, análisis de integración vertical, modelo fabless y sustentación del margen bruto (>45%) y captura de beneficios globales.
+- **Caso 02: Cuadro Comparativo entre Beneficios y Desventajas de la Cadena de Valor del Servicio**
+  Matriz analítica organizada por 6 dimensiones de gestión (enfoque al cliente, eficiencia de costos, flexibilidad, trabajo interfuncional, medición y outsourcing), con estrategias de mitigación de riesgos y puntos clave para exposición.
 - **Caso 03: Mapa Conceptual de la Sesión**
-  Taxonomía y relaciones entre el Sistema de Valor del Servicio, utilidad y garantía, principios rectores y arquetipos sistémicos.
+  Estructura taxonómica interactiva con filtros que aborda los fundamentos de Michael Porter, la Cadena de Valor del Servicio en ITIL 4, los casos de aplicación (Apple y empresa de servicios piurana) y argumentos para disertación oral.
 
 ---
 
-## Activación de GitHub Pages
+## Acceso en GitHub Pages
 
-1. Ingresar a `https://github.com/manuelleigh/SGT`
-2. Ir a **Settings** > **Pages**.
-3. En **Source**, seleccionar `Deploy from a branch` (rama `main`, carpeta `/root`).
-4. Guardar. El sitio quedará disponible en: `https://manuelleigh.github.io/SGT/`
+El sitio se encuentra publicado en:  
+`https://manuelleigh.github.io/SGT/`
