@@ -996,8 +996,8 @@ code.inline-code {
 .concept-itil .branch-label { color: #3f7198; }
 .concept-benefits { border-top-color: #508c68; }
 .concept-benefits .branch-label { color: #39754f; }
-.concept-examples { border-top-color: #a48135; }
-.concept-examples .branch-label { color: #826625; }
+.concept-examples, .concept-services { border-top-color: #a48135; }
+.concept-examples .branch-label, .concept-services .branch-label { color: #826625; }
 .concept-pair, .example-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
 .concept-pair section { padding: .8rem; border-radius: 10px; background: #f4f7f6; }
 .concept-pair h4 { margin: 0 0 .55rem; color: var(--primary); font-size: .85rem; }
