@@ -27,7 +27,7 @@ SGT/
 └── semana12/
     ├── index.html             # Hub de la Semana 12
     ├── caso01/
-    │   └── index.html         # Análisis de la Cadena de Valor de Apple (Diagrama e Inspección)
+    │   └── index.html         # Cadena de Valor de Casa Andina (Piura)
     ├── caso02/
     │   └── index.html         # Cuadro Comparativo de Beneficios y Desventajas de la CVS
     └── caso03/
@@ -38,8 +38,8 @@ SGT/
 
 ## Casos Desarrollados - Semana 12 (Sesión 1)
 
-- **Caso 01: Análisis de la Cadena de Valor de Apple**
-  Descomposición interactiva de las actividades primarias y de soporte según el modelo de Porter (1985). Incluye inspección dinámica de bloques, análisis de integración vertical, modelo fabless y sustentación del margen bruto (>45%) y captura de beneficios globales.
+- **Caso 01: Cadena de Valor de Casa Andina (Piura)**
+  Descomposición de actividades primarias y de soporte para una empresa hotelera premium en Piura según el modelo de Porter (1985). Incluye análisis de PMS hotelero, insumos locales, hospitalidad, eventos corporativos y margen de servicio superior.
 - **Caso 02: Cuadro Comparativo entre Beneficios y Desventajas de la Cadena de Valor del Servicio**
   Matriz analítica organizada por 6 dimensiones de gestión (enfoque al cliente, eficiencia de costos, flexibilidad, trabajo interfuncional, medición y outsourcing), con estrategias de mitigación de riesgos y puntos clave para exposición.
 - **Caso 03: Mapa Conceptual de la Sesión**
