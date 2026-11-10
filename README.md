@@ -24,15 +24,30 @@ SGT/
 │   │   └── index.html         # Cuadro Comparativo de los 5 Principios SVS
 │   └── caso03/
 │       └── index.html         # Mapa Conceptual de la Sesión 11
-└── semana12/
-    ├── index.html             # Hub de la Semana 12
+├── semana12/
+│   ├── index.html             # Hub de la Semana 12
+│   ├── caso01/
+│   │   └── index.html         # Cadena de Valor de Casa Andina (Piura)
+│   ├── caso02/
+│   │   └── index.html         # Cuadro Comparativo de Beneficios y Desventajas de la CVS
+│   └── caso03/
+│       └── index.html         # Mapa Conceptual de la Sesión 12
+└── semana13/
+    ├── index.html             # Hub de la Semana 13
     ├── caso01/
-    │   └── index.html         # Cadena de Valor de Casa Andina (Piura)
-    ├── caso02/
-    │   └── index.html         # Cuadro Comparativo de Beneficios y Desventajas de la CVS
-    └── caso03/
-        └── index.html         # Mapa Conceptual de la Sesión 12
+    │   └── index.html         # Gestión de Incidencias y Cambios en SUNAT DGIT
+    └── caso02/
+        └── index.html         # Mapa Conceptual de la Sesión 13
 ```
+
+---
+
+## Casos Desarrollados - Semana 13 (Sesión 1)
+
+- **Caso 01: Caso Práctico de Gestión de Servicios en la DGIT - SUNAT**
+  Modelado y aplicación de las prácticas de Gestión de Incidencias y Habilitación del Cambio basadas en ITIL para la División de Gestión de Infraestructura Tecnológica (DGIT) de la SUNAT. Detalla roles de soporte (Niveles 1, 2, 3 y CAB), ciclo de vida del incidente, solicitud de cambio (RFC), acuerdos de nivel de servicio (SLAs) e indicadores de desempeño (MTTR, FCR).
+- **Caso 02: Mapa Conceptual de la Sesión**
+  Taxonomía sistémica de las prácticas de gestión de ITIL 4 (Generales, de Servicios y Técnicas), relación sistémica ITIL vs PMBOK, esquema de certificación y alineación con estándares internacionales (ISO/IEC 20000, ISO 31000, ISO/IEC 22237, COBIT 2019).
 
 ---
 

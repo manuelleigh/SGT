@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172a3a">
+  <title>Caso 01 · Gestión de Incidencias y Cambios en SUNAT DGIT | Gestión de Servicios de TI</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body class="week13-page week13-case week13-case-01 presentation-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="header-top">
+    <div class="header-container">
+      <a class="brand-section" href="../../index.html"><span class="brand-logo-text">UTP</span><span class="brand-stack"><span class="brand-title">Gestión de Servicios de TI</span><span class="brand-subtitle">Semana 13 · Sesión 1</span></span></a>
+      <nav class="header-nav" aria-label="Navegación de la Semana 13">
+        <a class="nav-link" href="../index.html">Semana 13</a>
+        <a class="nav-link active" aria-current="page" href="index.html">Caso 01</a>
+        <a class="nav-link" href="../caso02/index.html">Caso 02</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" class="main-wrapper presentation-main">
+    <p class="presentation-kicker">SEMANA 13 · CASO 01</p>
+    <h1 class="presentation-title">Caso práctico: Gestión de Incidencias y Cambios en la DGIT de la SUNAT</h1>
+    <p class="presentation-lead">Modelado y aplicación de las prácticas de Gestión de Servicios de TI basadas en ITIL para la División de Gestión de Infraestructura Tecnológica (DGIT) de la Superintendencia Nacional de Aduanas y de Administración Tributaria.</p>
+
+    <!-- Contexto y Diagnóstico -->
+    <section class="card" aria-labelledby="context-title">
+      <div class="card-header">
+        <h2 id="context-title" class="card-title">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          1. Contexto Institucional y Situación Operativa Inicial
+        </h2>
+      </div>
+      <div class="grid-2">
+        <div>
+          <h3 class="sub-heading" style="margin-top:0;">Organización: SUNAT - DGIT</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            La <strong>División de Gestión de Infraestructura Tecnológica (DGIT)</strong> de la SUNAT administra la plataforma tecnológica que soporta servicios críticos nacionales: emisión de Comprobantes de Pago Electrónicos, Clave SOL, Declaración Jurada Anual y plataformas de aduanas. Esta infraestructura opera con centros de datos de alta disponibilidad, clústeres de servidores, almacenamiento en matrices RAID y enlaces de telecomunicaciones a nivel nacional.
+          </p>
+        </div>
+        <div>
+          <h3 class="sub-heading" style="margin-top:0;">Problemática Identificada</h3>
+          <ul style="margin-left: 1.25rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>Tiempos prolongados de resolución:</strong> Carencia de un ciclo de vida estandarizado desde el reporte de la incidencia hasta su cierre formal.</li>
+            <li><strong>Ausencia de priorización objetiva:</strong> Todos los tickets se atendían por orden de llegada sin medir el impacto en la recaudación tributaria.</li>
+            <li><strong>Cambios no coordinados en producción:</strong> Modificaciones en servidores y redes sin evaluación previa de riesgos, ocasionando caídas recurrentes.</li>
+            <li><strong>Insatisfacción del usuario:</strong> Falta de visibilidad y acuerdos de nivel de servicio (SLA) para los contribuyentes y colaboradores internos.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prácticas de Gestión de Servicios Seleccionadas -->
+    <section class="card" aria-labelledby="practices-title">
+      <div class="card-header">
+        <h2 id="practices-title" class="card-title">
+          <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          2. Prácticas de Gestión de Servicios Seleccionadas
+        </h2>
+      </div>
+      <div class="grid-2">
+        <div style="background-color: var(--background); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.15rem;">
+          <h3 class="sub-heading" style="margin-top: 0; color: var(--primary);">Gestión de Incidencias (Incident Management)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            <strong>Propósito:</strong> Restaurar la operación normal del servicio tributario en el menor tiempo posible y minimizar el impacto negativo en las actividades de fiscalización y recaudación.
+          </p>
+          <ul style="margin-left: 1.1rem; font-size: 0.825rem; color: var(--text-muted); line-height: 1.55; margin-top: 0.5rem;">
+            <li>Canal único de atención a través del Centro de Servicios al Usuario (Service Desk).</li>
+            <li>Clasificación y priorización mediante matriz bidimensional de impacto y urgencia.</li>
+            <li>Escalamiento jerárquico y funcional hacia los grupos especializados de la DGIT.</li>
+          </ul>
+        </div>
+        <div style="background-color: var(--background); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.15rem;">
+          <h3 class="sub-heading" style="margin-top: 0; color: var(--primary);">Habilitación del Cambio (Change Enablement)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            <strong>Propósito:</strong> Maximizar la cantidad de cambios exitosos en la infraestructura tecnológica evaluando los riesgos antes de su implementación en producción.
+          </p>
+          <ul style="margin-left: 1.1rem; font-size: 0.825rem; color: var(--text-muted); line-height: 1.55; margin-top: 0.5rem;">
+            <li>Registro y evaluación obligatoria de Solicitudes de Cambio (RFC).</li>
+            <li>Convocatoria y dictamen del Comité Asesor de Cambios (CAB) para cambios mayores.</li>
+            <li>Planes de reversión (rollback) aprobados previo a ventanas de mantenimiento.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Niveles de Soporte y Roles -->
+    <section class="card" aria-labelledby="roles-title">
+      <div class="card-header">
+        <h2 id="roles-title" class="card-title">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path></svg>
+          3. Estructura de Roles y Grupos de Soporte en la DGIT
+        </h2>
+      </div>
+      <div class="table-responsive">
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Nivel / Rol</th>
+              <th style="width: 25%;">Responsables</th>
+              <th style="width: 35%;">Funciones en el Servicio</th>
+              <th style="width: 20%;">Tiempo Objetivo SLA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nivel 1: Mesa de Servicio</strong></td>
+              <td>Operadores del Centro de Servicios al Usuario (CSU)</td>
+              <td>Punto único de contacto (SPOC), recepción, registro de tickets, tipificación, diagnóstico inicial y solución mediante base de conocimiento.</td>
+              <td>Resolución &le; 15 min<br><span style="font-size:0.78rem; color:var(--text-subtle);">o escalamiento inmediato</span></td>
+            </tr>
+            <tr>
+              <td><strong>Nivel 2: Soporte Técnico Especializado</strong></td>
+              <td>Especialistas de Sistemas Operativos, Middleware y Ofimática</td>
+              <td>Investigación técnica, aplicación de parches estándar, resolución de fallas de configuración y asistencia remota a estaciones y servidores de aplicación.</td>
+              <td>Resolución &le; 2 horas<br><span style="font-size:0.78rem; color:var(--text-subtle);">(Incidencias medias)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Nivel 3: Infraestructura y Redes</strong></td>
+              <td>Ingenieros de la DGIT (Servidores, Almacenamiento SAN/RAID, Redes WAN/LAN)</td>
+              <td>Diagnóstico de fallas críticas en centros de datos, recuperación de bases de datos Oracle/PostgreSQL y coordinación de soluciones definitivas con fabricantes.</td>
+              <td>Resolución &le; 4 horas<br><span style="font-size:0.78rem; color:var(--text-subtle);">(Incidentes de alta criticidad)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Comité de Cambios (CAB)</strong></td>
+              <td>Jefe de la DGIT, Gestor de Cambios, Líderes de Seguridad y Redes</td>
+              <td>Evaluación de impacto, análisis de riesgos según ISO 31000, autorización de RFCs y definición del calendario de despliegue en ventanas nocturnas.</td>
+              <td>Sesiones semanales<br><span style="font-size:0.78rem; color:var(--text-subtle);">(o Comité de Emergencia ECAB)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Ciclo de Vida del Proceso de Incidencias y Cambios -->
+    <section class="card" aria-labelledby="lifecycle-title">
+      <div class="card-header">
+        <h2 id="lifecycle-title" class="card-title">
+          <svg class="icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          4. Ciclo de Vida del Incidente y Articulación con Solicitudes de Cambio (RFC)
+        </h2>
+      </div>
+      <div class="grid-2">
+        <div>
+          <h3 class="sub-heading" style="margin-top: 0;">Flujo del Ciclo de Vida del Incidente</h3>
+          <ol style="margin-left: 1.25rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;">
+            <li><strong>Detección y Registro:</strong> Entrada vía portal web de autoservicio o alertas automáticas de monitoreo de servidores.</li>
+            <li><strong>Clasificación y Priorización:</strong> Determinación de categoría (redes, servidor, base de datos) y prioridad según Matriz de Impacto / Urgencia.</li>
+            <li><strong>Diagnóstico e Investigación:</strong> Búsqueda de soluciones temporales (workaround) en la base de datos de errores conocidos (KEDB).</li>
+            <li><strong>Resolución y Recuperación:</strong> Restablecimiento del servicio y validación con el usuario o verificación en plataforma.</li>
+            <li><strong>Cierre y Registro de Lecciones:</strong> Documentación detallada en la bitácora y encuesta automática de satisfacción.</li>
+          </ol>
+        </div>
+        <div>
+          <h3 class="sub-heading" style="margin-top: 0;">Articulación con Solicitud de Cambio (RFC)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem;">
+            Cuando la resolución de un incidente o problema requiere modificar la infraestructura de la DGIT (reemplazo de disco en matriz RAID, actualización de firmware de firewall o ajuste de parámetros de base de datos):
+          </p>
+          <div style="background: var(--background); border-left: 3px solid var(--secondary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">
+            <strong>Emisión de RFC &rarr; Clasificación (Estándar, Normal, Emergencia) &rarr; Aprobación CAB &rarr; Construcción y Pruebas en entorno réplica &rarr; Despliegue con plan de reversión &rarr; Revisión Post-Implementación (PIR).</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Indicadores y Resultados Obtenidos -->
+    <section class="card" aria-labelledby="metrics-title">
+      <div class="card-header">
+        <h2 id="metrics-title" class="card-title">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          5. Indicadores Clave de Desempeño (KPIs) e Impacto en la SUNAT
+        </h2>
+      </div>
+      <div class="grid-4" style="margin-bottom: 1.25rem;">
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--secondary);">-68%</div>
+          <div class="stat-label">Tiempo Medio de Resolución (MTTR)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--success);">78.4%</div>
+          <div class="stat-label">Resolución en Primer Contacto (FCR)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--primary);">96.2%</div>
+          <div class="stat-label">Éxito en Cambios de Infraestructura</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--accent);">99.8%</div>
+          <div class="stat-label">Disponibilidad de Servicios Críticos</div>
+        </div>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+        La implementación del ciclo de vida estandarizado de incidencias y la disciplina formal de cambios permitieron a la DGIT de la SUNAT transformar una operación reactiva en un servicio predictivo y de alta confiabilidad, garantizando la continuidad de la recaudación tributaria digital a nivel nacional.
+      </p>
+    </section>
+
+    <!-- Conclusiones para Exposición -->
+    <section class="analysis-panel" aria-labelledby="conclusions-title">
+      <p class="presentation-kicker">CONCLUSIÓN DEL CASO</p>
+      <h2 id="conclusions-title">Valor generado por las prácticas de gestión de servicios</h2>
+      <p>La experiencia de la DGIT de la SUNAT demuestra que la adopción de prácticas de ITIL no requiere adquirir software costoso de forma inmediata, sino estandarizar roles, documentar flujos de atención y establecer criterios claros de priorización y control de cambios. Esto reduce drásticamente el tiempo de caída de los servicios y asegura la trazabilidad operativa en beneficio de los usuarios y de la institución.</p>
+      <p class="analysis-conclusion"><strong>Síntesis para presentación:</strong> La Gestión de Incidencias restablece el servicio con rapidez ante contingencias operativas, mientras que la Habilitación del Cambio protege la estabilidad de la infraestructura para que las mejoras técnicas no generen nuevas fallas en producción.</p>
+    </section>
+
+    <nav class="presentation-next" aria-label="Navegación de casos">
+      <a href="../index.html"><span aria-hidden="true">←</span> Índice de la Semana 13</a>
+      <a href="../caso02/index.html">Siguiente: Caso 02 · Mapa conceptual de la sesión <span aria-hidden="true">→</span></a>
+    </nav>
+  </main>
+
+  <footer class="footer-main"><div class="footer-container"><span>Gestión de Servicios de TI · UTP</span><span>Semana 13</span></div></footer>
+</body>
+</html>
